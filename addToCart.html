@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="stylesheet" href="/index.css">
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        #tol{
+            color: rgb(0, 68, 255);
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="navL">
+            <div>
+                <a href="/index.html"><img id="logo" src="https://cdn.fcglcdn.com/brainbees/images/n/fc_logo.png" alt=""></a>
+            </div>
+            <div>
+                <link rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <form  >
+                    <input id="search" type="text" placeholder="Search.." >
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <div id="navR">
+            <ul>
+                <li>select location</li>
+                <li>Stores & Preschool</li>
+                <li>Support</li>
+                <li>Track Order</li>
+                <li>FirstCry Parenting</li>
+                <a href="/login.html"><li>Login / Register</li></a> 
+                <li><i class="fa fa-heart-o"></i> Shortlist</li>
+                <a href="/addToCart.html"><img id="cart"src="https://cdn-icons-png.flaticon.com/512/3405/3405663.png" alt=""></a>
+            </ul>
+        </div>
+    </nav>
+    <!-- menu content -->
+    <div id="menu">
+        <ul>
+            <a href="/products.html"><li>ALL PRODUCTS</li></a>
+            <li>BOYS FASHION</li>
+            <li>GIRLS FASHION</li> 
+            <li>FOOTWEAR</li>
+            <li>TOYS</li>
+            <li>DIAPERING</li>
+            <li>GEAR</li>
+            <li>FEEDING</li>
+            <li>BATH</li>
+            <li>NURSERY</li>
+            <li>MOMS</li>
+            <li>HEALTH</li>
+            <li>BOUTIQUES</li>
+            <img src="https://cdn.fcglcdn.com/brainbees/banners/FC-menu-carters-logo.webp" alt="">
+        </ul>        
+    </div>
+    <h3 id="tol">Your Total Amount is <span id="total">0</span></h3>
+    <div id="container"></div>
+    <footer>
+        <div>
+            <img src="/images/p1.PNG" alt="">
+            <img src="/images/p2.PNG" alt="">
+            <img src="/images/p3.PNG" alt="">
+            <img src="/images/p4.PNG" alt="">
+            <img src="/images/p5.PNG" alt="">
+        </div>
+        <h3>Connect With Ous</h3> 
+        <div class="logo">
+            <img src="https://seeklogo.com//images/F/facebook-logo-966BBFBC34-seeklogo.com.png" alt="">   
+            <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png" alt="">  
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="">   
+            
+
+        </div>       
+    </footer>
+
+</body>
+<script>
+    let LSdata=JSON.parse(localStorage.getItem("ecart"))||[];
+    let container=document.getElementById("container")
+    let total=document.getElementById("total");
+    display(LSdata);
+
+    function tol(){
+        let sum=0
+        LSdata.forEach(e=>{
+            sum+=e.price*e.quantity
+        })
+        total.innerText=sum;
+    }
+    function display(data){
+        tol();
+        container.innerHTML=null;
+        data.forEach((element,index) => {
+            let cart=document.createElement("div")
+            let img=document.createElement("img");
+            img.setAttribute("src",element.image);
+
+            let name=document.createElement("p");
+            name.innerText=element.name;
+
+            let type=document.createElement("p");
+            type.innerText=element.category+", "+element.type;
+
+            let price=document.createElement("h4")
+            price.innerText=`₹${element.price} Only___ ${element.rating} ★★★★☆`;
+
+            let remove=document.createElement("button");
+            remove.innerText='Remove';
+            let inc=document.createElement("button")
+            inc.innerText="+";   
+            let dec=document.createElement("button")
+            dec.innerText="-";  
+            let quantity=document.createElement("span")   
+            quantity.innerText=element.quantity;   
+
+            remove.addEventListener("click",()=>{
+                data.splice(index,1)
+                localStorage.setItem("ecart",JSON.stringify(data));
+                display(data);
+            })
+            inc.addEventListener("click" ,()=>{
+                element.quantity++;
+                localStorage.setItem("ecart",JSON.stringify(data));
+                display(data);
+            })
+            dec.addEventListener("click" ,()=>{
+                if(element.quantity>1){
+                    element.quantity--;
+                    localStorage.setItem("ecart",JSON.stringify(data));
+                    display(data);
+                   
+                }
+            })
+
+            cart.append(img,name,type,price,dec,quantity,inc,remove);
+            container.append(cart);
+        }); 
+    }
+</script>
+</html>

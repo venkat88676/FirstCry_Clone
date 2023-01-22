@@ -1,0 +1,159 @@
+body{
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    text-decoration:none;
+    color: rgba(61, 59, 59, 0.831);
+}
+footer{
+    background-color: #d9f3f4;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+footer img{
+    width: 150px;
+}
+footer div {
+    display: flex;
+    width: 60%;
+    margin: auto;
+}
+.logo img{
+    width: 50px;
+    margin: 10px;
+}
+.logo{
+    width: 15%;
+}
+
+nav {
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    justify-content: space-between;
+    padding: 10px;
+    height: 45px;
+    background-color: white;
+    /* border: solid red; */
+}
+#navL {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border: solid red; */
+    width: 40%;
+}
+#search{
+    width:250px;
+}
+#navR{
+    width: 68%;
+    margin-left: 90px;
+    margin-top: -1%;
+}
+#navR ul {
+    display: flex;
+    list-style: none;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.549);
+    /* border: solid red; */
+    align-items: center;
+
+  
+}
+#navR ul li{
+    border-right: solid rgba(121, 119, 119, 0.444);
+    height: 11px;
+    padding: 5px;
+
+}
+#login{
+
+    margin-right:9px ;
+    
+}
+#cart{
+    width:45px;
+ }
+#menu ul{
+    display: flex;
+    font-size:15px;
+    list-style: none;
+    justify-content: space-between;  
+    align-items: center;
+    padding: 7px;
+    margin-top: 0px;
+
+}
+#menu{
+    background-color: #ffd91c;
+    color: rgb(81, 78, 78);
+}
+#menu img{
+    
+    width: 70px;
+}
+#container{
+    width: 82%;
+    /* border: solid red; */
+    margin: auto;    
+}
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -20px;
+    padding: 16px;
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    background-color: rgba(240, 248, 255, 0.222);
+
+    user-select: none;
+}
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+#premium{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+#gridImg{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 90%;
+    gap: 15px;
+    margin: auto;
+}
+#gridImg img:hover{
+    transform: scale(1.05);
+}
+#gridImg img{
+    width:350px
+}
+.gloriousHead img{
+    max-width: 100%;
+    margin-top: 10px;
+}
+.gloriousImg {
+    display: flex;
+   padding: 5px;
+}
+.gloriousImg img{
+    width: 200px;
+    margin: auto;
+}
+#feeding{
+    display: flex;
+
+}
+#feeding img{
+    width: 200px;
+}
+
