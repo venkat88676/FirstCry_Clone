@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+<style>
+    #container{
+        width:25%;
+        margin: auto;
+        margin-top: 50px;
+        /* border: solid red; */
+        font-family: 'PT Sans', sans-serif;
+        color: rgb(62, 57, 57);
+    }
+    input{
+        border: 0px;
+        border-bottom: solid rgba(75, 73, 73, 0.543);
+        width: 100%;
+    }
+    #cont{
+        width: 100%;
+        margin-top: 30px;
+        padding: 10px;
+        background-color: rgba(246, 82, 22, 0.75);
+       
+        border: 0px;
+        border-radius: 8px;
+        color: white;
+    }
+    #cont:hover{
+        background-color: orangered;
+    }
+    img{
+       /* border: solid red; */
+       width: 150px;
+       margin-left: 90px;
+
+    }
+    a{
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.705);
+    }
+</style>
+<body>
+    <div id="container">
+        <div>
+           <a href="/index.html"><img id="logo" src="https://cdn.fcglcdn.com/brainbees/images/n/fc_logo.png" alt=""></a> 
+        </div>
+        <div >
+           <a href="/login.html"><h3> < Register</h4></h3></a> 
+            <form >
+                <h4>Full Name</h4>
+                <input id="name" type="text" placeholder="Enter your Full Name">
+                <h4>Mobile Number</h4>
+                <input id="mobile" type="number" placeholder="Enter Mobile No.">
+                <h4>Email ID</h4>
+                <input id="email" type="email" placeholder="Enter your Email ID">
+                <h4>Password</h4>
+                <input id="password" type="password" placeholder="Enter your Password"><br>
+                <button id="cont">CONTINUE</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    let LSdata=JSON.parse(localStorage.getItem("details"))||[];
+    let name=document.getElementById("name")
+    let mobile=document.getElementById("mobile")
+    let email=document.getElementById("email")
+    let password=document.getElementById("password")
+    let cont=document.getElementById("cont")
+    cont.addEventListener("click",()=>{
+        let data={
+            name:name.value,
+            mobile:mobile.value,
+            email:email.value,
+            password:password.value
+        }
+        LSdata.push(data);
+        localStorage.setItem("details",JSON.stringify(LSdata));
+        alert("Registered Successfully")
+    })
+</script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        #login_page{
+            width: 25%;
+            margin: auto;
+            margin-top: 50px;
+            padding:20px;
+        }
+        #cont{
+            background-color: orangered;
+            border: 0px;
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 20px;
+            color: white;
+        }
+        #fb img{
+            width: 25px;
+        }
+        #fb{
+            padding: 5px;
+            margin: 5px;
+            width: 100%;
+            
+           
+        }
+        #g img{
+            width: 49px;
+        }
+        #g{
+            padding: 5px;
+            margin: 5px;
+            width: 100%;            
+        }
+        #input{
+            border: 0px;
+            width: 100%;
+            border-bottom: solid rgba(75, 74, 74, 0.687);
+            /* margin-bottom: 8px; */
+            margin-top: 20px;
+        }
+        .center{
+            text-align: center;
+        }
+       
+       
+    </style>
+</head>
+<body>
+    <div id="login_page">
+        <div class="center">
+            <a href="/index.html"><img id="logo"  src="https://cdn.fcglcdn.com/brainbees/images/n/fc_logo.png" alt=""></a>
+        </div>
+        <div>
+            <h3>Login / Register</h3>
+            <h4>Email ID / Mobile No.</h4>
+            <input id="input" type="email" placeholder="Enter your Email ID"><br>
+            <button id="cont">CONTINUE</button>
+            <h3 class="center">--------OR---------</h3>
+            <button  id="fb"> <img src="https://www.nicepng.com/png/detail/161-1614585_twitter-facebook-instagram-youtube-fb-twitter-youtube-logo.png" alt=""> FACEBOOK</button><br>
+            <button id="g"> <img  src="https://blog.hubspot.com/hubfs/image8-2.jpg" alt=""> GOOGLE</button>
+            <h4>New to FirstCry?  <a href="/register.html">Register Here</a> </h4>
+        </div>
+    </div>
+   
+</body>
+<script>
+    let LSdata=JSON.parse(localStorage.getItem("details"))||[];
+    let input=document.getElementById("input");
+    let cont=document.getElementById("cont");
+    cont.addEventListener("click",()=>{
+        let flag=0
+        LSdata.forEach(element => {
+            if(element.email===input.value){
+                location.href="/index.html"
+                alert(`Welcome ${element.name}`)
+                flag=1;
+                
+            }
+        });
+        if(flag==0){
+            alert("NOT REGISTER")
+        }
+    })
+
+
+</script>
+</html>
