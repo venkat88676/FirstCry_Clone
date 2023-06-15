@@ -1,7 +1,7 @@
 # FirstCry_Clone
 An e-commerce site offerings all kinds of products relevant to small child to teenager.
 ## tech-stack
-HTML,CSS,js,API,EXPRESS,NODE
+HTML| CSS | js | API | EXPRESS | NODE
 
 HOME PAGE---
 
